@@ -1,6 +1,6 @@
 const group = n => source => (start, sink) => {
   if (start !== 0) return;
-  let chunk = [];
+  const chunk = [];
   source(0, (t, d) => {
     if (t === 1) {
       chunk.push(d);
@@ -14,7 +14,7 @@ const group = n => source => (start, sink) => {
       }
       sink(t, d);
     }
-  })
-}
+  });
+};
 
 module.exports = group;
