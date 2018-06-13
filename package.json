@@ -4,7 +4,10 @@
   "description": "Callbag operator that group data in chunks",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "npm run lint && npm run test-only",
+    "test-only": "NODE_ENV=test jest",
+    "test-watch": "npm run test-only -- --watch"
   },
   "keywords": [],
   "author": "Fabrizio Ruggeri",
@@ -16,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/ramiel/callbag-group/issues"
   },
-  "homepage": "https://github.com/ramiel/callbag-group#readme"
+  "homepage": "https://github.com/ramiel/callbag-group#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "jest": "^23.1.0"
+  }
 }

@@ -6,12 +6,14 @@ const group = n => source => (start, sink) => {
       sink(0, d);
     } else if (t === 1) {
       bunch.push(d);
-      if (bunch.length === n - 1) {
+      if (bunch.length === n) {
         sink(1, bunch);
         bunch = [];
       }
     } else if (t === 2) {
-      sink(1, bunch);
+      if (bunch.length) {
+        sink(1, bunch);
+      } 
       sink(t, d);
     }
   });
