@@ -1,0 +1,20 @@
+{
+  "name": "callbag-group",
+  "version": "0.1.0",
+  "description": "Callbag operator that group data in chunks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Fabrizio Ruggeri",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramiel/callbag-group.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ramiel/callbag-group/issues"
+  },
+  "homepage": "https://github.com/ramiel/callbag-group#readme"
+}
