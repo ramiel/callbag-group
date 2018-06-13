@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ramiel/callbag-group.svg?branch=master)](https://travis-ci.com/ramiel/callbag-group)
+
 # Callbag Group operator
 
 A callbag operator that group data in chunks of a given size
@@ -18,7 +20,7 @@ const groupedSource = group(5)(source);
 
 iterate((x) => {
   console.log(x);
-})(source);
+})(groupedSource);
 
 // Prints:
 // [1,2,3,4,5]

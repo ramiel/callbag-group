@@ -1,6 +1,7 @@
 /* eslint-env jest */
 
 const group = require('./index.js');
+const range = require('callbag-range');
 
 describe('Listenable source', () => {
   const spySink = jest.fn();
@@ -201,3 +202,25 @@ describe('Pullable source', () => {
   });
 });
 
+
+describe('Interoperating', () => {
+  const spySink = jest.fn();
+  const sink = (t, d) => {
+    if (t === 0) {
+      d(1);
+    } else if (t === 1) {
+      spySink(d);
+    }
+  };
+
+  beforeEach(() => {
+    spySink.mockClear();
+  });
+  test('a little tests with community modules', () => {
+    const source = range(1, 10);
+    const groupedSource = group(5)(source);
+    groupedSource(0, sink);
+    expect(spySink).toHaveBeenCalledTimes(2);
+    expect(spySink).toHaveBeenLastCalledWith(expect.any(Array));
+  });
+});
