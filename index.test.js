@@ -7,6 +7,7 @@ describe('Listenable source', () => {
 
   const sourceFactory = n => (t, d) => {
     if (t === 0) {
+      d(0, () => {});
       for (let i = 0; i < n; i += 1) {
         d(1, i);
       }
@@ -199,3 +200,4 @@ describe('Pullable source', () => {
     expect(chunk).toHaveLength(1);
   });
 });
+
