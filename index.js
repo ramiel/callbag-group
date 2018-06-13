@@ -13,7 +13,7 @@ const group = n => source => (start, sink) => {
     } else if (t === 2) {
       if (bunch.length) {
         sink(1, bunch);
-      } 
+      }
       sink(t, d);
     }
   });
