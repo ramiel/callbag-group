@@ -94,12 +94,13 @@ describe('Pullable source', () => {
   const sourceFactory = n => (start, sink) => {
     if (start !== 0) return;
     let i = 0;
+    let alreadyEnded = false;
     sink(0, (t) => {
       if (t === 1) {
-        sink(1, i);
-        i += 1;
-        if (i === n) {
-          i = 0;
+        if (i < n) {
+          sink(1, i += 1);
+        } else if (!alreadyEnded) {
+          alreadyEnded = true;
           sink(2);
         }
       }
